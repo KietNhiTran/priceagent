@@ -12,7 +12,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
@@ -37,7 +37,7 @@ async def _real_scrape(url: str, competitor: str) -> dict[str, Any]:
     screenshots_dir = settings.resolved_data_dir / "screenshots"
     screenshots_dir.mkdir(parents=True, exist_ok=True)
 
-    timestamp = datetime.utcnow()
+    timestamp = datetime.now(timezone.utc)
     date_str = timestamp.strftime("%Y%m%d_%H%M%S")
     screenshot_filename = f"{competitor}_{date_str}.png"
     screenshot_path = screenshots_dir / screenshot_filename
@@ -133,7 +133,7 @@ async def _csv_fallback(
             "promotion": best.get("promotion", ""),
             "screenshot_path": best.get("screenshot_path", ""),
             "scrape_mode": "csv_fallback",
-            "scrape_timestamp": best.get("scrape_timestamp", datetime.utcnow().isoformat()),
+            "scrape_timestamp": best.get("scrape_timestamp", datetime.now(timezone.utc).isoformat()),
             "matched_sku": best.get("matched_sku"),
         }
     else:
@@ -146,7 +146,7 @@ async def _csv_fallback(
             "promotion": "",
             "screenshot_path": "",
             "scrape_mode": "csv_fallback",
-            "scrape_timestamp": datetime.utcnow().isoformat(),
+            "scrape_timestamp": datetime.now(timezone.utc).isoformat(),
             "error": "No matching competitor data found in CSV",
         }
 

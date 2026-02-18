@@ -16,7 +16,7 @@ import time
 import json
 import logging
 from contextlib import asynccontextmanager
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, AsyncGenerator
 
 from backend.tracing.trace_models import AgentStep, AgentTrace, StepStatus, InferenceMode
@@ -42,7 +42,7 @@ async def trace_step(
         trace_id=trace.trace_id,
         agent_name=agent_name,
         status=StepStatus.RUNNING,
-        start_time=datetime.utcnow(),
+        start_time=datetime.now(timezone.utc),
         input_summary=input_summary[:500],  # truncate long inputs
     )
     trace.steps.append(step)
@@ -62,5 +62,5 @@ async def trace_step(
         raise
     finally:
         elapsed = time.perf_counter() - start
-        step.end_time = datetime.utcnow()
+        step.end_time = datetime.now(timezone.utc)
         step.duration_ms = int(elapsed * 1000)

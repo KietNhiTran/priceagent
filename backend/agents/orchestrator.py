@@ -12,7 +12,7 @@ import uuid
 import time
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Callable, Awaitable, Optional
 
 from backend.tracing.trace_models import AgentTrace, TraceDecision, InferenceMode
@@ -54,7 +54,7 @@ async def orchestrate(
     trace = AgentTrace(
         trace_id=str(uuid.uuid4()),
         session_id=session_id,
-        timestamp=datetime.utcnow(),
+        timestamp=datetime.now(timezone.utc),
         user_message=user_message,
     )
     start_time = time.perf_counter()
