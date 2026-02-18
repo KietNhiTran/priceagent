@@ -8,7 +8,7 @@ Aligned with:
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Optional
 
@@ -66,7 +66,7 @@ class AgentTrace(BaseModel):
     """Complete trace of a multi-agent execution."""
     trace_id: str
     session_id: str = ""
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     total_duration_ms: Optional[int] = None
     final_decision: Optional[str] = None
     user_message: str = ""
