@@ -228,7 +228,7 @@ async def upload_screenshot(file: UploadFile = File(...)):
     screenshots_dir.mkdir(parents=True, exist_ok=True)
 
     # Sanitize filename - extract basename and remove unsafe characters
-    safe_filename = os.path.basename(file.filename or "upload.png")
+    safe_filename = os.path.basename(file.filename) if file.filename else "upload.png"
     safe_filename = re.sub(r'[^a-zA-Z0-9_.-]', '_', safe_filename)
     filename = f"upload_{uuid.uuid4().hex[:8]}_{safe_filename}"
     file_path = screenshots_dir / filename
