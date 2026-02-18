@@ -24,6 +24,7 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.config import get_settings, get_kernel
 from backend.tracing.trace_store import TraceStore
+from backend.tracing.trace_models import AgentStep, StepStatus
 from backend.agents.orchestrator import orchestrate
 
 # ---------------------------------------------------------------------------
@@ -155,13 +156,16 @@ async def websocket_chat(websocket: WebSocket):
                     "content": "I'm sorry, something went wrong. Please try again.",
                     "sender": "bot",
                 })
+                error_step = AgentStep(
+                    step_id=str(uuid.uuid4()),
+                    trace_id="error",
+                    agent_name="System",
+                    status=StepStatus.FAILED,
+                    raw_json={"error": str(e)},
+                )
                 await send_ws({
                     "type": "agent_step",
-                    "step": {
-                        "agent": "System",
-                        "status": "failed",
-                        "details": {"error": str(e)},
-                    },
+                    "step": error_step.model_dump(),
                 })
 
     except WebSocketDisconnect:
