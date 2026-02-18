@@ -85,7 +85,6 @@ async def orchestrate(
     # Send initial chat message
     await _emit("chat_message", {
         "message": "Let me check that for you...",
-        "sender": "bot",
     })
 
     # ─────────────────────────────────────────────────────────────────────
@@ -118,7 +117,6 @@ async def orchestrate(
         await _emit("chat_message", {
             "message": "I can help with that! However, this doesn't seem to be a price-beat request. "
                        "If you've found a product cheaper elsewhere, please share the details and I'll check our Lowest Liquor Price Guarantee for you.",
-            "sender": "bot",
         })
         trace.final_decision = "NOT_LLPG"
         trace.total_duration_ms = int((time.perf_counter() - start_time) * 1000)
@@ -164,7 +162,6 @@ async def orchestrate(
         await _emit("chat_message", {
             "message": f"Sorry, I couldn't verify that URL. {url_result.get('reason', '')} "
                        f"Could you double-check the link or tell me the competitor name and price?",
-            "sender": "bot",
         })
 
     # ─────────────────────────────────────────────────────────────────────
@@ -204,7 +201,6 @@ async def orchestrate(
     if not competitor_price:
         await _emit("chat_message", {
             "message": "I couldn't find the competitor's price. Could you tell me the exact price you saw?",
-            "sender": "bot",
         })
         trace.final_decision = "INCOMPLETE"
         trace.total_duration_ms = int((time.perf_counter() - start_time) * 1000)
@@ -250,7 +246,6 @@ async def orchestrate(
     if not match_result.get("matched_sku"):
         await _emit("chat_message", {
             "message": "I couldn't find a matching product in our catalogue. Could you provide more details about the product?",
-            "sender": "bot",
         })
         trace.final_decision = "NO_MATCH"
         trace.total_duration_ms = int((time.perf_counter() - start_time) * 1000)
@@ -355,7 +350,6 @@ async def orchestrate(
     # Send final chat message
     await _emit("chat_message", {
         "message": decision_result.get("message", "Processing complete."),
-        "sender": "bot",
         "product_comparison": {
             "our_product": {
                 "name": our_product_name,

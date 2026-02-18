@@ -113,7 +113,6 @@ async def websocket_chat(websocket: WebSocket):
         "message": "Hi! I'm the Dan Murphy's Price Beat Assistant. "
                    "If you've found a product cheaper elsewhere, share the details "
                    "and I'll check our Lowest Liquor Price Guarantee for you! 🍷",
-        "sender": "bot",
     })
 
     try:
@@ -134,7 +133,6 @@ async def websocket_chat(websocket: WebSocket):
             await send_ws({
                 "type": "chat_message",
                 "message": user_message,
-                "sender": "user",
             })
 
             # Run orchestration
@@ -153,7 +151,6 @@ async def websocket_chat(websocket: WebSocket):
                 await send_ws({
                     "type": "chat_message",
                     "message": "I'm sorry, something went wrong. Please try again.",
-                    "sender": "bot",
                 })
                 await send_ws({
                     "type": "agent_step",
