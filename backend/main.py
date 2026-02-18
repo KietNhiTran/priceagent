@@ -164,7 +164,7 @@ async def websocket_chat(websocket: WebSocket):
                 )
                 await send_ws({
                     "type": "agent_step",
-                    "step": error_step.model_dump(),
+                    "step": error_step.model_dump(by_alias=True),
                 })
 
     except WebSocketDisconnect:

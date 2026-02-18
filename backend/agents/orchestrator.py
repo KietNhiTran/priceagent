@@ -91,13 +91,13 @@ async def orchestrate(
     # Step 1: Intent Detection
     # ─────────────────────────────────────────────────────────────────────
     async with trace_step(trace, "IntentAgent", user_message) as step:
-        await _emit("agent_step", {"step": step.model_dump()})
+        await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
         intent_result, intent_mode = await run_intent_agent(kernel, user_message, has_real_ai)
         step.output_summary = json.dumps(intent_result)[:500]
         step.inference_mode = InferenceMode(intent_mode)
         step.raw_json = intent_result
 
-    await _emit("agent_step", {"step": step.model_dump()})
+    await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
     # Check if this is an LLPG request
     if intent_result.get("intent") != "llpg_price_beat":
@@ -120,13 +120,13 @@ async def orchestrate(
     # Step 2: URL Validation
     # ─────────────────────────────────────────────────────────────────────
     async with trace_step(trace, "URLValidationAgent", competitor_url or "no URL") as step:
-        await _emit("agent_step", {"step": step.model_dump()})
+        await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
         url_result, url_mode = await run_url_validation_agent(competitor_url)
         step.output_summary = json.dumps(url_result)[:500]
         step.inference_mode = InferenceMode(url_mode)
         step.raw_json = url_result
 
-    await _emit("agent_step", {"step": step.model_dump()})
+    await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
     # Use competitor from URL validation if available
     if url_result.get("competitor"):
@@ -142,7 +142,7 @@ async def orchestrate(
     # Step 3: Scraping
     # ─────────────────────────────────────────────────────────────────────
     async with trace_step(trace, "ScrapingAgent", f"URL={competitor_url}, comp={competitor_name}") as step:
-        await _emit("agent_step", {"step": step.model_dump()})
+        await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
         scrape_url = competitor_url if url_result.get("is_valid") else None
         scrape_result, scrape_mode = await run_scraping_agent(
@@ -155,7 +155,7 @@ async def orchestrate(
         step.inference_mode = InferenceMode(scrape_mode)
         step.raw_json = scrape_result
 
-    await _emit("agent_step", {"step": step.model_dump()})
+    await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
     competitor_price = scrape_result.get("competitor_price") or stated_price
     if not competitor_price:
@@ -174,7 +174,7 @@ async def orchestrate(
     matched_sku_from_csv = scrape_result.get("matched_sku")
 
     async with trace_step(trace, "ProductMatchingAgent", comp_product_name) as step:
-        await _emit("agent_step", {"step": step.model_dump()})
+        await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
         match_result, match_mode = await run_product_matching_agent(
             kernel,
             competitor_product_name=comp_product_name,
@@ -187,7 +187,7 @@ async def orchestrate(
         step.inference_mode = InferenceMode(match_mode)
         step.raw_json = match_result
 
-    await _emit("agent_step", {"step": step.model_dump()})
+    await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
     if not match_result.get("matched_sku"):
         await _emit("chat_message", {
@@ -207,7 +207,7 @@ async def orchestrate(
     # Step 5: LLPG Rule Evaluation
     # ─────────────────────────────────────────────────────────────────────
     async with trace_step(trace, "LLPGRuleAgent", f"comp=${competitor_price}, own=${own_price}") as step:
-        await _emit("agent_step", {"step": step.model_dump()})
+        await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
         rule_result, rule_mode = await run_llpg_rule_agent(
             kernel,
             competitor_price=competitor_price,
@@ -222,13 +222,13 @@ async def orchestrate(
         step.inference_mode = InferenceMode(rule_mode)
         step.raw_json = rule_result
 
-    await _emit("agent_step", {"step": step.model_dump()})
+    await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
     # ─────────────────────────────────────────────────────────────────────
     # Step 6: Decision
     # ─────────────────────────────────────────────────────────────────────
     async with trace_step(trace, "DecisionAgent", json.dumps(rule_result)[:300]) as step:
-        await _emit("agent_step", {"step": step.model_dump()})
+        await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
         decision_result, decision_mode = await run_decision_agent(
             kernel,
             rule_result=rule_result,
@@ -242,7 +242,7 @@ async def orchestrate(
         step.inference_mode = InferenceMode(decision_mode)
         step.raw_json = decision_result
 
-    await _emit("agent_step", {"step": step.model_dump()})
+    await _emit("agent_step", {"step": step.model_dump(by_alias=True)})
 
     # ─────────────────────────────────────────────────────────────────────
     # Finalize trace
