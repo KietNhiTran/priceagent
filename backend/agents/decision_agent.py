@@ -103,7 +103,7 @@ async def run_decision_agent(
         result["competitor"] = competitor
     if not result.get("product_name"):
         result["product_name"] = product_name
-    if beat_price and own_price:
+    if beat_price is not None and own_price is not None:
         result["saving"] = round(own_price - beat_price, 2)
 
     # Generate a default message if AI didn't provide one
