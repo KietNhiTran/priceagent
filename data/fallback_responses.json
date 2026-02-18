@@ -1,0 +1,223 @@
+{
+  "IntentAgent": {
+    "default": {
+      "intent": "llpg_price_beat",
+      "confidence": 0.95,
+      "entities": {
+        "competitor": null,
+        "product_name": null,
+        "competitor_price": null,
+        "competitor_url": null
+      },
+      "reasoning": "User message indicates a price-beat request under the LLPG policy."
+    },
+    "no_intent": {
+      "intent": "general_inquiry",
+      "confidence": 0.80,
+      "entities": {},
+      "reasoning": "Message does not appear to relate to the Lowest Liquor Price Guarantee."
+    }
+  },
+  "URLValidationAgent": {
+    "valid_liquorland": {
+      "url": "https://www.liquorland.com.au/product/example",
+      "is_valid": true,
+      "competitor": "liquorland",
+      "domain_match": true,
+      "reason": "URL matches allowed competitor domain: liquorland.com.au"
+    },
+    "valid_boozebud": {
+      "url": "https://www.boozebud.com/product/example",
+      "is_valid": true,
+      "competitor": "boozebud",
+      "domain_match": true,
+      "reason": "URL matches allowed competitor domain: boozebud.com"
+    },
+    "invalid": {
+      "url": "",
+      "is_valid": false,
+      "competitor": null,
+      "domain_match": false,
+      "reason": "URL does not match any known competitor domain."
+    },
+    "no_url": {
+      "url": null,
+      "is_valid": true,
+      "competitor": null,
+      "domain_match": false,
+      "reason": "No URL provided — will use CSV fallback for competitor data."
+    }
+  },
+  "ScrapingAgent": {
+    "default": {
+      "competitor": "liquorland",
+      "competitor_product_name": "Victoria Bitter 24 x 375mL Bottles",
+      "competitor_price": 48.99,
+      "competitor_url": "https://www.liquorland.com.au/beer/victoria-bitter-24-375ml",
+      "in_stock": true,
+      "promotion": "",
+      "screenshot_path": "data/screenshots/liquorland_DM-001001_20260218.png",
+      "scrape_mode": "csv_fallback",
+      "scrape_timestamp": "2026-02-18T10:30:00"
+    }
+  },
+  "ProductMatchingAgent": {
+    "default": {
+      "matched_sku": "DM-001001",
+      "product_name": "Victoria Bitter 24 x 375mL Bottles",
+      "brand": "Victoria Bitter",
+      "category": "beer",
+      "current_price": 52.00,
+      "cost_price": 38.00,
+      "match_confidence": 0.97,
+      "match_method": "barcode + name similarity",
+      "reasoning": "High confidence match based on barcode and product name similarity."
+    },
+    "low_confidence": {
+      "matched_sku": "DM-001001",
+      "product_name": "Victoria Bitter 24 x 375mL Bottles",
+      "brand": "Victoria Bitter",
+      "category": "beer",
+      "current_price": 52.00,
+      "cost_price": 38.00,
+      "match_confidence": 0.72,
+      "match_method": "name similarity only",
+      "reasoning": "Moderate confidence — product names similar but no barcode match. Please verify."
+    },
+    "no_match": {
+      "matched_sku": null,
+      "product_name": null,
+      "brand": null,
+      "category": null,
+      "current_price": null,
+      "cost_price": null,
+      "match_confidence": 0.0,
+      "match_method": "none",
+      "reasoning": "Could not find a matching product in the Dan Murphy's catalogue."
+    }
+  },
+  "LLPGRuleAgent": {
+    "auto_approve": {
+      "decision": "AUTO_APPROVE",
+      "beat_price": 48.98,
+      "beat_amount": 0.01,
+      "price_diff_pct": 5.8,
+      "tier": "auto_approve",
+      "rsa_compliant": true,
+      "rules_evaluated": {
+        "rsa_check": {
+          "floor_price": 39.90,
+          "beat_price": 48.98,
+          "compliant": true
+        },
+        "stock_for_stock": {
+          "same_product": true,
+          "same_volume": true,
+          "same_pack": true,
+          "result": "PASS"
+        },
+        "beat_formula": {
+          "competitor_price": 48.99,
+          "own_price": 52.00,
+          "beat_amount": 0.01,
+          "beat_price": 48.98,
+          "diff_pct": 5.8,
+          "tier": "auto_approve"
+        }
+      },
+      "reasoning": "Price difference is within auto-approve threshold (< $5.00, < 15%). RSA floor not violated. Stock-for-stock match confirmed."
+    },
+    "human_review": {
+      "decision": "SEND_TO_REVIEW",
+      "beat_price": 37.99,
+      "beat_amount": 0.01,
+      "price_diff_pct": 26.9,
+      "tier": "human_review",
+      "rsa_compliant": true,
+      "rules_evaluated": {
+        "rsa_check": {
+          "floor_price": 39.90,
+          "beat_price": 37.99,
+          "compliant": false
+        },
+        "stock_for_stock": {
+          "same_product": true,
+          "same_volume": true,
+          "same_pack": true,
+          "result": "PASS"
+        },
+        "beat_formula": {
+          "competitor_price": 38.00,
+          "own_price": 52.00,
+          "beat_amount": 0.01,
+          "beat_price": 37.99,
+          "diff_pct": 26.9,
+          "tier": "human_review"
+        }
+      },
+      "reasoning": "Price difference exceeds 15% threshold. Routing to Commercial Hub (CHUB) for manual review."
+    },
+    "auto_reject": {
+      "decision": "AUTO_REJECT",
+      "beat_price": null,
+      "beat_amount": null,
+      "price_diff_pct": 42.3,
+      "tier": "auto_reject",
+      "rsa_compliant": false,
+      "rules_evaluated": {
+        "rsa_check": {
+          "floor_price": 39.90,
+          "beat_price": 29.99,
+          "compliant": false
+        },
+        "stock_for_stock": {
+          "same_product": true,
+          "same_volume": true,
+          "same_pack": true,
+          "result": "PASS"
+        },
+        "beat_formula": {
+          "competitor_price": 30.00,
+          "own_price": 52.00,
+          "beat_amount": 0.01,
+          "beat_price": 29.99,
+          "diff_pct": 42.3,
+          "tier": "auto_reject"
+        }
+      },
+      "reasoning": "Price difference exceeds 30% and beat price falls below RSA floor. Auto-rejected."
+    }
+  },
+  "DecisionAgent": {
+    "approved": {
+      "decision": "APPROVED",
+      "message": "Great news! We can beat that price. Our new price for Victoria Bitter 24 x 375mL Bottles will be $48.98 — saving you $3.01 compared to your current bottle shop price!",
+      "beat_price": 48.98,
+      "original_price": 52.00,
+      "saving": 3.02,
+      "competitor": "liquorland",
+      "product_name": "Victoria Bitter 24 x 375mL Bottles",
+      "reasoning": "The price beat has been auto-approved. The new price of $48.98 beats the competitor's $48.99 by $0.01, is above our RSA floor price of $39.90, and the stock-for-stock match is confirmed."
+    },
+    "sent_to_review": {
+      "decision": "SENT_TO_REVIEW",
+      "message": "Thanks for letting us know! The price difference is significant, so our team will review this and get back to you shortly. A team member from our Commercial Hub will confirm within 24 hours.",
+      "beat_price": null,
+      "original_price": 52.00,
+      "saving": null,
+      "competitor": "liquorland",
+      "product_name": "Victoria Bitter 24 x 375mL Bottles",
+      "reasoning": "The price difference exceeds our auto-approve threshold. This has been sent to the Commercial Hub (CHUB) for human review."
+    },
+    "rejected": {
+      "decision": "REJECTED",
+      "message": "I'm sorry, but we're unable to match that price. The difference is outside our price-beat policy guidelines. However, we have great value across our wide range — can I help you find something else?",
+      "beat_price": null,
+      "original_price": 52.00,
+      "saving": null,
+      "competitor": "liquorland",
+      "product_name": "Victoria Bitter 24 x 375mL Bottles",
+      "reasoning": "The price-beat request has been auto-rejected because the beat price would fall below our minimum price threshold."
+    }
+  }
+}
