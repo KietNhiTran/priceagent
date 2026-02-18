@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proactive Price Beat System — Solution Architecture</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 15mm;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.5;
+            padding: 20px 40px;
+        }
+
+        /* ── Cover / Title ── */
+        .cover {
+            text-align: center;
+            padding: 60px 0 30px;
+            page-break-after: always;
+        }
+        .cover h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .cover h2 {
+            font-size: 20px;
+            color: #555;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .cover .subtitle {
+            font-size: 14px;
+            color: #888;
+        }
+        .cover .meta {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* ── Section ── */
+        .section {
+            page-break-before: always;
+            padding-top: 10px;
+        }
+        .section:first-of-type {
+            page-break-before: auto;
+        }
+        h2.section-title {
+            font-size: 22px;
+            color: #1a1a1a;
+            border-bottom: 3px solid #444;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 16px;
+            color: #333;
+            margin: 20px 0 10px;
+        }
+
+        /* ── Diagram container ── */
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+            background: #fff;
+        }
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        /* ── Description list ── */
+        .description ol {
+            margin: 10px 0 10px 24px;
+        }
+        .description ol li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .description ol li strong {
+            color: #222;
+        }
+
+        /* ── Table ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        th {
+            background: #444;
+            color: #fff;
+            text-align: left;
+            padding: 8px 12px;
+            font-weight: 600;
+        }
+        td {
+            padding: 7px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+
+        /* ── Key points ── */
+        .key-points {
+            background: #f5f5f5;
+            border-left: 4px solid #444;
+            padding: 12px 16px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .key-points ul {
+            margin: 6px 0 0 18px;
+        }
+        .key-points li {
+            margin-bottom: 4px;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: #bbb;
+            margin-top: 40px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        @media print {
+            body { padding: 0; }
+            .section { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER PAGE ═══════════════════ -->
+<div class="cover">
+    <h1>Proactive Price Beat System</h1>
+    <h2>Solution Architecture — AI-First with Unified Data Platform</h2>
+    <p class="subtitle">Azure AI Foundry · Semantic Kernel · Microsoft Fabric · Azure Bot Service</p>
+    <p class="meta">Prepared: February 2026 &nbsp;|&nbsp; Version 1.0 &nbsp;|&nbsp; Confidential</p>
+</div>
+
+<!-- ═══════════════════ DIAGRAM 1: CONCEPTUAL ═══════════════════ -->
+<div class="section">
+    <h2 class="section-title">1. Conceptual Architecture</h2>
+    <p>High-level view showing how the system works — technology-agnostic, designed for executive audiences.</p>
+
+    <div class="diagram-container">
+        <img src="diagram1-conceptual.svg" alt="Conceptual Architecture Diagram" />
+    </div>
+
+    <h3>How It Works</h3>
+    <div class="description">
+        <ol>
+            <li><strong>Competitors are continuously monitored</strong> — The system scrapes competitor prices on a configurable schedule from an extensible URL registry</li>
+            <li><strong>All pricing data is unified</strong> — Competitor prices, our prices, and product catalogues live in one platform with full versioned history</li>
+            <li><strong>AI evaluates every price change</strong> — The intelligence layer automatically matches products, detects promotions, validates conditions, and determines if we should beat the price</li>
+            <li><strong>Risk-based decisions</strong> — Low-risk beats are auto-approved instantly; complex or unusual cases are routed to the pricing team for human review</li>
+            <li><strong>Intelligent queue handles volume at scale</strong> — Batches related decisions together, prioritises by revenue impact, and adapts thresholds during surge events so the team only reviews what truly needs human judgement</li>
+            <li><strong>Customers are proactively notified</strong> — Before they even ask, we offer them the better price via email, SMS, or in-app notification</li>
+            <li><strong>Customers can also ask</strong> — The AI chatbot handles reactive requests in real-time (URL, screenshot, or coupon code submission)</li>
+        </ol>
+    </div>
+
+    <h3>Component Descriptions</h3>
+    <table>
+        <tr><th>Component</th><th>Purpose</th></tr>
+        <tr><td>🤖 AI Chatbot & Notifications</td><td>Customer-facing conversational AI. Handles both proactive notifications (system finds a beat) and reactive requests (customer submits a competitor price). Supports text, images, and URLs.</td></tr>
+        <tr><td>⚙️ Admin Portal & Review Queue</td><td>Internal tool for the pricing team to manage competitor sources, configure LLPG rules, toggle features, and review/approve medium-risk price beat decisions.</td></tr>
+        <tr><td>🧠 AI Intelligence Layer</td><td>Core AI engine performing: customer intent detection, product matching (brand/variant/size), LLPG rule evaluation (20+ business rules), image/label analysis for wine vintages, and fraud detection.</td></tr>
+        <tr><td>⚡ Proactive Decision Engine</td><td>Classifies each price beat opportunity by risk level. Low-risk = auto-approve and notify customer. Medium-risk = route to human review queue. High-risk (fraud/excluded) = auto-reject and log.</td></tr>
+        <tr><td>� Intelligent Queue &amp; Batch Control</td><td>Handles volume at scale. Groups related decisions into batches for bulk approval, dynamically adjusts auto-approval thresholds during surges, prioritises review items by revenue impact, and routes categories to specialist reviewers.</td></tr>
+        <tr><td>�📊 Unified Data Platform</td><td>Single source of truth combining real-time competitor prices (versioned with timestamps), historical price trends, unified product catalogue, and market insight analytics.</td></tr>
+        <tr><td>🔄 Continuous Competitor Monitoring</td><td>Always-on scraping pipeline. Competitor URLs are configurable and extensible (add new competitors without code changes). Events flow through a real-time pipeline into the data platform.</td></tr>
+    </table>
+</div>
+
+<!-- ═══════════════════ DIAGRAM 2: AZURE ARCHITECTURE ═══════════════════ -->
+<div class="section">
+    <h2 class="section-title">2. Azure Solution Architecture</h2>
+    <p>Detailed view with specific Azure and Microsoft services mapped to each layer of the solution.</p>
+
+    <div class="diagram-container">
+        <img src="diagram2-azure-architecture.svg" alt="Azure Solution Architecture Diagram" />
+    </div>
+
+    <h3>Azure Services by Layer</h3>
+    <table>
+        <tr><th>Layer</th><th>Azure / Microsoft Services</th><th>Purpose</th></tr>
+        <tr><td><strong>Customer Experience</strong></td><td>Azure Bot Service, Azure Communication Services, Azure API Management</td><td>AI chatbot (Web/Mobile/Teams channels), email/SMS notifications, secure API gateway with OAuth</td></tr>
+        <tr><td><strong>Administration</strong></td><td>Azure Static Web Apps, Power Automate, Microsoft Teams</td><td>Admin portal for URL/rule management, approval workflows for price beat review, Teams-based notification queue</td></tr>
+        <tr><td><strong>AI Intelligence</strong></td><td>Azure AI Foundry, Semantic Kernel, Azure OpenAI (GPT-4o / Vision / Embeddings), Azure AI Search</td><td>Multi-agent orchestration, LLM-powered intent/matching/rules, image analysis for screenshots &amp; labels, vector search for product matching &amp; LLPG knowledge base</td></tr>
+        <tr><td><strong>Configuration</strong></td><td>Azure Cosmos DB, Azure App Configuration</td><td>LLPG rule parameters and competitor source registry (Cosmos DB), feature flags and rule toggles (App Configuration)</td></tr>
+        <tr><td><strong>Event Backbone</strong></td><td>Azure Event Hubs, Azure Service Bus (Competing Consumers)</td><td>High-throughput price event streaming (Event Hubs), ordered transactional messaging for CHUB escalation (Service Bus), competing consumers for parallel team processing</td></tr>
+        <tr><td><strong>Queue &amp; Batch Control</strong></td><td>Service Bus Sessions, Cosmos DB (thresholds), Data Activator (surge), Power Automate (bulk cards)</td><td>Batch grouping via sessions, adaptive auto-approval thresholds, real-time surge detection, Teams bulk approval cards for batch decisions</td></tr>
+        <tr><td><strong>Unified Data Platform</strong></td><td>Microsoft Fabric — Eventhouse, Lakehouse, Data Activator, Notebooks, Power BI + Copilot</td><td>Real-time KQL queries on price streams, Delta table historical archive, automated alert reflexes on price drops, Spark ML for trend analysis, natural language dashboards</td></tr>
+        <tr><td><strong>Scraping Layer</strong></td><td>Azure Container Apps + KEDA, Azure Functions</td><td>Auto-scaling Playwright scraping workers (scale to zero, burst at peak), timer-triggered scheduling and data quality normalization</td></tr>
+        <tr><td><strong>Security &amp; Compliance</strong></td><td>Azure Key Vault, Microsoft Entra ID, Azure Private Link, Australia East Region</td><td>Secrets management, identity &amp; access control, private networking for all PaaS services, Australian data residency compliance</td></tr>
+    </table>
+
+    <h3>Key Architecture Principles</h3>
+    <div class="key-points">
+        <ul>
+            <li><strong>Event-Driven:</strong> Every state change (scrape result, price drop, rule decision, escalation) flows as an event through Event Hubs — no polling, no synchronous coupling</li>
+            <li><strong>AI-First:</strong> Semantic Kernel orchestrates all intelligent decisions — intent detection, product matching, rule evaluation, fraud scoring, and trend analysis</li>
+            <li><strong>Unified Data:</strong> Microsoft Fabric serves as the single data platform — real-time (Eventhouse) and historical (Lakehouse) in one place, with built-in ML and BI</li>
+            <li><strong>Proactive + Reactive:</strong> System continuously finds price beat opportunities (proactive) while still supporting customer-initiated requests (reactive)</li>
+            <li><strong>Human-in-the-Loop:</strong> Risk-based routing ensures complex decisions get human review via Power Automate / Teams approvals before reaching customers</li>
+            <li><strong>Configurable &amp; Extensible:</strong> New competitor URLs, rule changes, and feature toggles require zero code changes — managed through admin portal and App Configuration</li>
+            <li><strong>Scale-Ready:</strong> Intelligent queue batches related decisions, adapts thresholds during surges, and routes by category — so the pricing team handles thousands of events without being overwhelmed</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ═══════════════════ LLPG RULES SUMMARY ═══════════════════ -->
+<div class="section">
+    <h2 class="section-title">3. LLPG Rules Engine — Business Rules</h2>
+    <p>The Lowest Liquor Price Guarantee (LLPG) Rule Engine evaluates 15+ business rules to determine if a competitor price qualifies for a price beat. Each rule is implemented as a Semantic Kernel plugin — independently testable, configurable without code changes.</p>
+
+    <table>
+        <tr><th>Rule</th><th>What It Does</th></tr>
+        <tr><td><strong>Beat Price Formula</strong></td><td>Calculates the price to beat the competitor: 50c below for items under a threshold, $1 below for items above (configurable)</td></tr>
+        <tr><td><strong>Normalised Unit Price</strong></td><td>Converts competitor prices to comparable unit price (per-litre, per-can). Translates cart-level discounts to product level</td></tr>
+        <tr><td><strong>Retailer Allow-List</strong></td><td>Rejects the claim if the competitor is excluded (e.g., duty-free, wholesale-only)</td></tr>
+        <tr><td><strong>Stock-for-Stock</strong></td><td>Caps beat quantity to match competitor's available stock — checked across any store nationally</td></tr>
+        <tr><td><strong>Promo Limit</strong></td><td>If competitor promo only applies to limited quantity (e.g., max 2), beat price applies to same quantity</td></tr>
+        <tr><td><strong>Delivery Fee Exclusion</strong></td><td>Excludes delivery fees from comparison. Exception: "spend X, get free delivery" promos</td></tr>
+        <tr><td><strong>Vintage &amp; Label Matching</strong></td><td>Strict matching for wine vintages and visual labels (baseline vs. premium) using AI Vision</td></tr>
+        <tr><td><strong>Lightning Sale Validation</strong></td><td>Validates that flash sales / happy hours are actually active at the exact time of processing</td></tr>
+        <tr><td><strong>Member Discount Rejection</strong></td><td>If competitor price is members-only (loyalty/club), the price beat does not apply</td></tr>
+        <tr><td><strong>Clearance Detection</strong></td><td>Identifies clearance items at competitors and responds with relevant messaging</td></tr>
+        <tr><td><strong>Radius Rule</strong></td><td>10km radius rule (currently suspended, toggleable on/off via feature flag without code change)</td></tr>
+        <tr><td><strong>RSA Compliance</strong></td><td>Enforces Responsible Service of Alcohol floor price — alcohol cannot be sold below legal minimum</td></tr>
+        <tr><td><strong>Fraud Risk Scoring</strong></td><td>ML-based risk scoring to detect abuse (repeated claims, manipulated screenshots, fake URLs)</td></tr>
+    </table>
+</div>
+
+<!-- ═══════════════════ SCALING STRATEGY ═══════════════════ -->
+<div class="section">
+    <h2 class="section-title">4. Scaling Strategy — Handling High-Volume Price Beat Events</h2>
+    <p>When a competitor runs a site-wide sale or multiple competitors change prices simultaneously, thousands of beat decisions can arrive within minutes. This section explains how the architecture handles that at scale.</p>
+
+    <h3>The Scale Challenge</h3>
+    <table>
+        <tr><th>Scenario</th><th>Estimated Volume</th></tr>
+        <tr><td>Single competitor site-wide sale (e.g., 20% off all spirits)</td><td>~500–2,000 decisions simultaneously</td></tr>
+        <tr><td>Multiple competitors change prices on the same day</td><td>~3,000–10,000 decisions</td></tr>
+        <tr><td>Holiday season (Boxing Day, EOFY)</td><td>Sustained high volume over days</td></tr>
+        <tr><td>New competitor added to monitoring</td><td>Initial backfill of entire catalogue</td></tr>
+    </table>
+
+    <h3>5-Layer Scaling Strategy</h3>
+    <table>
+        <tr><th>#</th><th>Strategy</th><th>What It Does</th><th>Azure Implementation</th></tr>
+        <tr><td>1</td><td><strong>Batch Grouping</strong></td><td>Groups related decisions by trigger (same competitor + same event). Team reviews the batch policy once → all items inherit the decision.</td><td>Service Bus <strong>sessions</strong>; Cosmos DB batch metadata</td></tr>
+        <tr><td>2</td><td><strong>Adaptive Auto-Approval</strong></td><td>Dynamically adjusts confidence thresholds. Normal: &gt;95% auto-approve. Surge (queue &gt;500): lowers to &gt;85% + post-audit flag.</td><td>Cosmos DB threshold config; Azure Functions recalculates</td></tr>
+        <tr><td>3</td><td><strong>Priority Queue with SLA</strong></td><td>Scores items by revenue impact × time sensitivity. High-value surfaces first; low-value auto-approves after timeout.</td><td>Service Bus <strong>priority queues</strong>; Cosmos DB scoring</td></tr>
+        <tr><td>4</td><td><strong>Category-Based Routing</strong></td><td>Wine/vintage → wine expert. Spirits/beer → general team. Fraud → fraud analyst.</td><td>Service Bus <strong>topic subscriptions</strong> with category filters</td></tr>
+        <tr><td>5</td><td><strong>Surge Detection</strong></td><td>Monitors queue depth &amp; arrival rate in real-time. Triggers team alerts, mode switches, staffing signals.</td><td>Fabric <strong>Data Activator</strong>; Power BI real-time dashboard</td></tr>
+    </table>
+
+    <h3>Batch Approval Example</h3>
+    <div class="key-points">
+        <ol>
+            <li>Competitor BWS drops prices on 800 spirit products by 15%</li>
+            <li>Scraping layer detects 800 price changes → 800 events through Event Hubs</li>
+            <li>AI evaluates all 800 → produces 800 beat decisions</li>
+            <li><strong>Batch Grouping</strong> recognises all 800 share the same trigger and creates <strong>1 batch</strong></li>
+            <li>Pricing team receives <strong>1 approval card</strong> in Teams: <em>"BWS spirits sale — 800 products, avg beat $2.40, total margin impact $1,920. Approve all?"</em></li>
+            <li>Team clicks <strong>Approve All</strong> → 800 customers notified instantly</li>
+            <li>Edge cases (vintage wine, clearance) are separated as individual items for dedicated review</li>
+        </ol>
+    </div>
+
+    <h3>Adaptive Mode Switching</h3>
+    <table>
+        <tr><th>Queue Depth</th><th>Mode</th><th>Behaviour</th></tr>
+        <tr><td>&lt; 100</td><td><strong>Normal</strong></td><td>Strict thresholds, all medium-risk → human review</td></tr>
+        <tr><td>100 – 500</td><td><strong>Elevated</strong></td><td>Relax thresholds slightly, batch similar items</td></tr>
+        <tr><td>&gt; 500</td><td><strong>Surge</strong></td><td>Aggressive auto-approve, post-audit, bulk cards, team alerts</td></tr>
+    </table>
+    <p style="font-size:13px; color:#666; margin-top:8px;">All mode transitions are logged and auditable. Post-audit reports are generated automatically for decisions auto-approved during surge mode.</p>
+</div>
+
+<div class="footer">
+    Proactive Price Beat System — Solution Architecture v1.1 — February 2026 — Confidential
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+graph TD
+    %% ── Personas ──
+    CUST["👤 Customer<br/>(Web / Mobile / Teams)"]
+    TEAM["👥 Pricing Team"]
+
+    %% ── Interaction Layer ──
+    CUSTEXP["Customer Experience<br/><i>Azure Bot Service · Communication Services · API Management</i>"]
+    ADMINEXP["Administration<br/><i>Static Web Apps · Power Automate · Microsoft Teams</i>"]
+
+    %% ── AI Layer ──
+    AIBLOCK["🧠 Azure AI Foundry + Semantic Kernel<br/><i>Azure OpenAI (GPT-4o / Vision / Embeddings) · AI Search · Cosmos DB · App Configuration</i>"]
+
+    %% ── Event Layer ──
+    EVENTBLOCK["⚡ Event Backbone<br/><i>Azure Event Hubs · Azure Service Bus (Competing Consumers)</i>"]
+
+    %% ── Scale Layer ──
+    SCALEBLOCK["📋 Intelligent Queue & Batch Control<br/><i>Service Bus Sessions (Batch Grouping) · Cosmos DB (Adaptive Thresholds) · Data Activator (Surge Detection) · Power Automate (Bulk Approval Cards)</i>"]
+
+    %% ── Data Layer ──
+    FABRICBLOCK["📊 Microsoft Fabric<br/><i>Eventhouse (Real-Time KQL) · Lakehouse (Delta) · Data Activator · Notebooks (Spark ML) · Power BI + Copilot</i>"]
+
+    %% ── Scraping Layer ──
+    SCRAPEBLOCK["🔄 Scraping Layer<br/><i>Azure Container Apps + KEDA · Azure Functions</i>"]
+
+    %% ── External ──
+    COMP["🏪 Competitor Websites"]
+    ERP["🏢 Retailer ERP / POS"]
+
+    %% ── Security (footer) ──
+    SECBLOCK["🔒 Security & Compliance<br/><i>Azure Key Vault · Microsoft Entra ID · Azure Private Link · Australia East Region</i>"]
+
+    %% ── Left side: Customer flows ──
+    CUST -- "chat / images" --> CUSTEXP
+    CUSTEXP -- "proactive offers &<br/>notifications" --> CUST
+
+    %% ── Right side: Pricing Team flows ──
+    TEAM -- "manage rules,<br/>sources, approvals" --> ADMINEXP
+    SCALEBLOCK -- "batched approvals &<br/>priority queue" --> TEAM
+    FABRICBLOCK -- "dashboards, insights &<br/>queue metrics" --> TEAM
+
+    %% ── Centre: top-down flow (no crossing) ──
+    CUSTEXP --> AIBLOCK
+    ADMINEXP --> AIBLOCK
+    AIBLOCK --> EVENTBLOCK
+    EVENTBLOCK --> SCALEBLOCK
+    SCALEBLOCK --> FABRICBLOCK
+    FABRICBLOCK -- "alerts & data" --> AIBLOCK
+    SCRAPEBLOCK --> EVENTBLOCK
+    COMP --> SCRAPEBLOCK
+    ERP --> FABRICBLOCK
+
+    %% ── Styling: white bg, dark grey blocks, white labels ──
+    classDef persona fill:#ffffff,stroke:#333333,stroke-width:2px,color:#333333,font-weight:bold
+    classDef block fill:#444444,stroke:#222222,stroke-width:2px,color:#ffffff
+    classDef external fill:#666666,stroke:#333333,stroke-width:2px,color:#ffffff
+    classDef security fill:#555555,stroke:#333333,stroke-width:1px,color:#ffffff,stroke-dasharray:5 5
+
+    class CUST,TEAM persona
+    class CUSTEXP,ADMINEXP,AIBLOCK,EVENTBLOCK,SCALEBLOCK,FABRICBLOCK,SCRAPEBLOCK block
+    class COMP,ERP external
+    class SECBLOCK security

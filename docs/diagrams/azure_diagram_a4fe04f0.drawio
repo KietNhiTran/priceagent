@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Drawpyo" modified="2026-02-18T14:47:41" agent="Python 3.11, Drawpyo 0.23" version="21.6.5" type="device">
+  <diagram name="Page-1" id="2177464504464">
+    <mxGraphModel dx="2037" dy="830" grid="1" gridSize="10" guides="1" toolTips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1123" pageHeight="794" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2177464818640" value="&lt;i&gt;This is your generated Azure architecture diagram. Resources are organized in groups that can be moved and resized. Drag icons to reposition them — connections will auto-route. Double-click connections to add labels. Layout: A4 landscape.&lt;/i&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;dashed=0;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+  <mxGeometry x="40" y="10" width="1043" height="30" as="geometry" />
+</mxCell>
+        <mxCell id="2177464827216" value="Customer Experience" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#E3F2FD;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="640" y="75" width="380" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464821520" value="Administration" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#FFF3E0;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="340" y="264" width="270" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464821136" value="AI Intelligence (Semantic Kernel)" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#C8E6C9;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="640" y="264" width="270" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464825808" value="Event Backbone &amp; Batch Control" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#FFF9C4;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="40" y="453" width="270" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464821712" value="Unified Data Platform (Microsoft Fabric)" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#B2EBF2;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="340" y="453" width="160" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464201744" value="Scraping Layer" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#F8BBD0;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="340" y="75" width="270" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464390160" value="Configuration" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#E1BEE7;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="40" y="264" width="270" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464390352" value="Security &amp; Compliance" style="swimlane;whiteSpace=wrap;rounded=1;fillColor=#CFD8DC;strokeColor=#0078D4;glass=0;shadow=0;dashed=0;html=1;fillOpacity=50;strokeWidth=2;startSize=30;horizontal=1;fontSize=12;fontStyle=1;fontColor=#0078D4;" vertex="1" parent="1">
+  <mxGeometry x="40" y="75" width="270" height="159" as="geometry" />
+</mxCell>
+        <mxCell id="2177464395600" value="[1] Azure Bot Service" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/ai_machine_learning/Bot_Services.svg;" vertex="1" parent="2177464827216">
+  <mxGeometry x="245" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464395536" value="[2] Communication Services" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/other/Azure_Communication_Services.svg;" vertex="1" parent="2177464827216">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464392528" value="[3] API Management" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/app_services/API_Management_Services.svg;" vertex="1" parent="2177464827216">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464370000" value="[4] Admin Portal" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/preview/Static_Apps.svg;" vertex="1" parent="2177464821520">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464383952" value="[5] Power Automate" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/power_platform/PowerAutomate.svg;" vertex="1" parent="2177464821520">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464377296" value="[6] Azure OpenAI + Semantic Kernel" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/ai_machine_learning/Azure_OpenAI.svg;" vertex="1" parent="2177464821136">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464521168" value="[7] Azure AI Search" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/app_services/Search_Services.svg;" vertex="1" parent="2177464821136">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464526416" value="[8] Event Hubs" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/analytics/Event_Hubs.svg;" vertex="1" parent="2177464825808">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464522576" value="[9] Service Bus" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/general/Service_Bus.svg;" vertex="1" parent="2177464825808">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464530960" value="[10] Power BI + Copilot" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/power_platform/PowerBI.svg;" vertex="1" parent="2177464821712">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464522960" value="[11] Container Apps + KEDA" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/other/Worker_Container_App.svg;" vertex="1" parent="2177464201744">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464391952" value="[12] Azure Functions" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="2177464201744">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464526480" value="[13] Cosmos DB" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;" vertex="1" parent="2177464390160">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464524048" value="[14] App Configuration" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/integration/App_Configuration.svg;" vertex="1" parent="2177464390160">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464532752" value="[15] Key Vault" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/security/Key_Vaults.svg;" vertex="1" parent="2177464390352">
+  <mxGeometry x="25" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464529616" value="[16] Microsoft Entra ID" style="image;whiteSpace=wrap;rounded=0;dashed=0;html=1;points=[];align=center;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;image=img/lib/azure2/other/Entra_Identity.svg;" vertex="1" parent="2177464390352">
+  <mxGeometry x="135" y="49" width="40" height="40" as="geometry" />
+</mxCell>
+        <mxCell id="2177464284496" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=1;entryY=0.5;exitX=0;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464395600" target="2177464392528" value="1. Chat request">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464245392" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0.5;entryY=0;exitX=0.5;exitY=1;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464392528" target="2177464377296" value="2. AI orchestration">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464276048" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464377296" target="2177464521168" value="3. Product matching">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464282192" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=1;entryY=0.2;exitX=0;exitY=0.2;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464377296" target="2177464526416" value="4. Beat decision events">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464322064" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.2;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464526416" target="2177464522576" value="5. Batch routing">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464321488" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464522576" target="2177464383952" value="6. Bulk approval cards">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464321616" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.8;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464526416" target="2177464530960" value="7. Real-time metrics">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464320400" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464395536" target="2177464395600" value="8. Proactive notifications">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464322704" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=1;entryY=0.8;exitX=0;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464522960" target="2177464526416" value="9. Scrape results">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464323280" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464391952" target="2177464522960" value="10. Schedule triggers">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464323792" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.2;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464370000" target="2177464392528" value="11. Admin portal calls">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464324304" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=1;entryY=0.5;exitX=0;exitY=0.8;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464377296" target="2177464526480" value="Rule config">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464324816" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464524048" target="2177464377296" value="Feature flags">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464325328" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.5;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464532752" target="2177464392528" value="Secrets">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464325840" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;entryX=0;entryY=0.8;exitX=1;exitY=0.5;endArrow=blockThin;endFill=0;strokeColor=#999999;strokeWidth=1;" edge="1" parent="1" source="2177464529616" target="2177464392528" value="Auth">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+        <mxCell id="2177464326352" value="📋 Architecture Legend" style="whiteSpace=wrap;rounded=1;fillColor=#0078D4;strokeColor=#005a9e;dashed=0;html=1;fontColor=#ffffff;fontStyle=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="1">
+  <mxGeometry x="40" y="834" width="675" height="30" as="geometry" />
+</mxCell>
+        <mxCell id="2177464326928" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr style=&apos;font-weight:bold;&apos;&gt;&lt;td style=&apos;width:35px;padding:4px;&apos;&gt;#&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Name&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;&apos;&gt;Type&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Rationale&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#E6F3FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;overflow=hidden;html=1;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="864" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464526224" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;1&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Azure Bot Service&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Bot Services&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Customer-facing AI chatbot for reactive price beat requests via Web, Mobile, and Teams&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="888" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464330000" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;2&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Communication Services&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Azure Communication Services&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Proactive outbound notifications via email/SMS when a price beat is found&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="912" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464038480" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;3&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;API Management&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;API Management Services&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Secure API gateway with OAuth — single entry point for all traffic&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="936" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464333584" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;4&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Admin Portal&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Static Apps&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Pricing team portal to manage competitor URLs, LLPG rules, and review queue&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="960" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464335440" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;5&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Power Automate&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;PowerAutomate&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Bulk approval cards in Teams for batch price beat decisions and escalation flows&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="984" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464496848" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;6&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Azure OpenAI + Semantic Kernel&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Azure OpenAI&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;GPT-4o for intent/rules, Vision for screenshots, Embeddings for matching — orchestrated by Semantic Kernel&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1008" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464498384" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;7&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Azure AI Search&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Search Services&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Vector search for product matching and LLPG knowledge base retrieval (RAG)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1032" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464487888" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;8&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Event Hubs&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Event Hubs&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;High-throughput streaming — scrape-results, price-changes, beat-decisions, audit-events&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1056" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464489616" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;9&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Service Bus&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Service Bus&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Session-based batch grouping, competing consumers, CHUB escalation messaging&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1080" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464491408" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;10&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Power BI + Copilot&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;PowerBI&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Real-time dashboards — queue depth, batch summaries, price trends, SLA compliance&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1104" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464493008" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;11&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Container Apps + KEDA&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Worker Container App&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Auto-scaling Playwright scraping — scale to zero, burst at peak&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1128" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464494736" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;12&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Azure Functions&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Function Apps&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Timer scheduling, data normalisation, threshold recalculation, timeout workers&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1152" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464484176" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;13&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Cosmos DB&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Azure Cosmos DB&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;LLPG rules, competitor registry, batch metadata, adaptive thresholds&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1176" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464485776" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;14&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;App Configuration&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;App Configuration&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Feature flags — radius rule toggle, surge mode, new competitor switches&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1200" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464487440" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;15&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Key Vault&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Key Vaults&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Secrets — API keys, connection strings, certificates&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1224" width="675" height="24" as="geometry" />
+</mxCell>
+        <mxCell id="2177464305232" value="&lt;table style=&apos;width:100%;border-collapse:collapse;&apos;&gt;&lt;tr&gt;&lt;td style=&apos;width:35px;padding:4px;font-weight:bold;color:#0078D4;&apos;&gt;16&lt;/td&gt;&lt;td style=&apos;width:180px;padding:4px;&apos;&gt;Microsoft Entra ID&lt;/td&gt;&lt;td style=&apos;width:160px;padding:4px;color:#666;&apos;&gt;Entra Identity&lt;/td&gt;&lt;td style=&apos;width:300px;padding:4px;&apos;&gt;Identity — user auth, managed identities, RBAC&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;rounded=0;fillColor=#F0F8FF;strokeColor=#0078D4;dashed=0;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;html=1;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="40" y="1248" width="675" height="24" as="geometry" />
+</mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

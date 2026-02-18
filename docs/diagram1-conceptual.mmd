@@ -1,0 +1,54 @@
+graph TD
+    %% ── Personas ──
+    CUST["👤 Customer"]
+    TEAM["👥 Pricing Team"]
+
+    %% ── Interaction Layer ──
+    BOT["🤖 AI Chatbot &<br/>Notifications"]
+    ADMIN["⚙️ Admin Portal &<br/>Review Queue"]
+
+    %% ── Intelligence ──
+    AI["🧠 AI Intelligence Layer<br/><i>Intent · Matching · Rules · Vision · Fraud</i>"]
+
+    %% ── Decision ──
+    DECIDE["⚡ Proactive Decision Engine<br/><i>Auto-Approve · Human Review · Auto-Reject</i>"]
+
+    %% ── Scale Management ──
+    SCALE["📋 Intelligent Queue & Batch Control<br/><i>Batch Grouping · Adaptive Thresholds · Priority Ranking · Surge Detection</i>"]
+
+    %% ── Data ──
+    DATA["📊 Unified Data Platform<br/><i>Real-Time Prices · History · Catalogue · Insights</i>"]
+
+    %% ── Ingestion ──
+    INGEST["🔄 Continuous Competitor Monitoring<br/><i>Web Scraping · Configurable Sources · Events</i>"]
+
+    %% ── External ──
+    COMP["🏪 Competitors  (A, B, C …)"]
+
+    %% ── Left side: Customer flows ──
+    CUST -- "chat / request" --> BOT
+    BOT -- "proactive offer" --> CUST
+
+    %% ── Right side: Pricing Team flows ──
+    TEAM -- "manage rules & sources" --> ADMIN
+    SCALE -- "batched approvals &<br/>priority items" --> TEAM
+    DATA -- "dashboards &<br/>queue metrics" --> TEAM
+
+    %% ── Centre: top-down flow ──
+    BOT --> AI
+    ADMIN --> AI
+    AI --> DECIDE
+    DECIDE --> SCALE
+    SCALE --> DATA
+    DATA --> AI
+    INGEST --> DATA
+    COMP --> INGEST
+
+    %% ── Styling: white bg, dark grey blocks, white text ──
+    classDef persona fill:#ffffff,stroke:#333333,stroke-width:2px,color:#333333,font-weight:bold
+    classDef block fill:#444444,stroke:#222222,stroke-width:2px,color:#ffffff
+    classDef external fill:#666666,stroke:#333333,stroke-width:2px,color:#ffffff
+
+    class CUST,TEAM persona
+    class BOT,ADMIN,AI,DECIDE,SCALE,DATA,INGEST block
+    class COMP external
