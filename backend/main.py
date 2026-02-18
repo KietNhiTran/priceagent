@@ -110,7 +110,7 @@ async def websocket_chat(websocket: WebSocket):
     # Send welcome message
     await send_ws({
         "type": "chat_message",
-        "content": "Hi! I'm the Dan Murphy's Price Beat Assistant. "
+        "message": "Hi! I'm the Dan Murphy's Price Beat Assistant. "
                    "If you've found a product cheaper elsewhere, share the details "
                    "and I'll check our Lowest Liquor Price Guarantee for you! 🍷",
         "sender": "bot",
@@ -133,7 +133,7 @@ async def websocket_chat(websocket: WebSocket):
             # Echo user message back (for chat panel)
             await send_ws({
                 "type": "chat_message",
-                "content": user_message,
+                "message": user_message,
                 "sender": "user",
             })
 
@@ -152,7 +152,7 @@ async def websocket_chat(websocket: WebSocket):
                 logger.error("[session=%s] Orchestration error: %s", session_id, e, exc_info=True)
                 await send_ws({
                     "type": "chat_message",
-                    "content": "I'm sorry, something went wrong. Please try again.",
+                    "message": "I'm sorry, something went wrong. Please try again.",
                     "sender": "bot",
                 })
                 await send_ws({

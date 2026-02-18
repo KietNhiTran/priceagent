@@ -84,7 +84,7 @@ async def orchestrate(
 
     # Send initial chat message
     await _emit("chat_message", {
-        "content": "Let me check that for you...",
+        "message": "Let me check that for you...",
         "sender": "bot",
     })
 
@@ -116,7 +116,7 @@ async def orchestrate(
     # Check if this is an LLPG request
     if intent_result.get("intent") != "llpg_price_beat":
         await _emit("chat_message", {
-            "content": "I can help with that! However, this doesn't seem to be a price-beat request. "
+            "message": "I can help with that! However, this doesn't seem to be a price-beat request. "
                        "If you've found a product cheaper elsewhere, please share the details and I'll check our Lowest Liquor Price Guarantee for you.",
             "sender": "bot",
         })
@@ -162,7 +162,7 @@ async def orchestrate(
 
     if competitor_url and not url_result.get("is_valid"):
         await _emit("chat_message", {
-            "content": f"Sorry, I couldn't verify that URL. {url_result.get('reason', '')} "
+            "message": f"Sorry, I couldn't verify that URL. {url_result.get('reason', '')} "
                        f"Could you double-check the link or tell me the competitor name and price?",
             "sender": "bot",
         })
@@ -203,7 +203,7 @@ async def orchestrate(
     competitor_price = scrape_result.get("competitor_price") or stated_price
     if not competitor_price:
         await _emit("chat_message", {
-            "content": "I couldn't find the competitor's price. Could you tell me the exact price you saw?",
+            "message": "I couldn't find the competitor's price. Could you tell me the exact price you saw?",
             "sender": "bot",
         })
         trace.final_decision = "INCOMPLETE"
@@ -249,7 +249,7 @@ async def orchestrate(
 
     if not match_result.get("matched_sku"):
         await _emit("chat_message", {
-            "content": "I couldn't find a matching product in our catalogue. Could you provide more details about the product?",
+            "message": "I couldn't find a matching product in our catalogue. Could you provide more details about the product?",
             "sender": "bot",
         })
         trace.final_decision = "NO_MATCH"
