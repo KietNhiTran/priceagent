@@ -157,9 +157,11 @@ async def websocket_chat(websocket: WebSocket):
                 })
                 await send_ws({
                     "type": "agent_step",
-                    "agent": "System",
-                    "status": "failed",
-                    "details": {"error": str(e)},
+                    "step": {
+                        "agent": "System",
+                        "status": "failed",
+                        "details": {"error": str(e)},
+                    },
                 })
 
     except WebSocketDisconnect:
