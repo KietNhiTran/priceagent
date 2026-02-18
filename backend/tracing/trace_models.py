@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class StepStatus(str, Enum):
@@ -36,12 +36,14 @@ class Decision(str, Enum):
 
 class AgentStep(BaseModel):
     """A single agent execution step within a trace."""
+    model_config = ConfigDict(populate_by_name=True)
+    
     step_id: str
     trace_id: str
     agent_name: str
     status: StepStatus = StepStatus.PENDING
-    start_time: Optional[datetime] = None
-    end_time: Optional[datetime] = None
+    start_time: Optional[datetime] = Field(default=None, alias="started_at")
+    end_time: Optional[datetime] = Field(default=None, alias="completed_at")
     duration_ms: Optional[int] = None
     input_summary: str = ""
     output_summary: str = ""
@@ -51,12 +53,14 @@ class AgentStep(BaseModel):
 
 class TraceDecision(BaseModel):
     """Final decision details for an LLPG trace."""
+    model_config = ConfigDict(populate_by_name=True)
+    
     decision: Decision
     reason_code: str = ""
     beat_price: Optional[float] = None
     rsa_compliant: bool = True
-    competitor: str = ""
-    product_name: str = ""
+    competitor: str = Field("", alias="competitor_name")
+    product_name: str = Field("", alias="our_product_name")
     competitor_price: Optional[float] = None
     own_price: Optional[float] = None
     saving: Optional[float] = None

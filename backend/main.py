@@ -12,12 +12,14 @@ Endpoints:
 from __future__ import annotations
 
 import json
+import os
+import re
 import uuid
 import logging
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File, Query
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -162,7 +164,7 @@ async def websocket_chat(websocket: WebSocket):
                 )
                 await send_ws({
                     "type": "agent_step",
-                    "step": error_step.model_dump(),
+                    "step": error_step.model_dump(by_alias=True),
                 })
 
     except WebSocketDisconnect:
@@ -197,14 +199,40 @@ async def get_trace(trace_id: str):
 @app.post("/api/upload-screenshot")
 async def upload_screenshot(file: UploadFile = File(...)):
     """Upload a competitor screenshot for analysis."""
+    # Validate file type
+    allowed_types = ["image/png", "image/jpeg", "image/jpg", "image/webp"]
+    if file.content_type not in allowed_types:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid file type. Allowed types: {', '.join(allowed_types)}"
+        )
+    
+    # Validate size with streaming to prevent memory exhaustion (max 10MB)
+    max_size = 10 * 1024 * 1024  # 10MB
+    content_size = 0
+    chunks = []
+    
+    async for chunk in file.stream():
+        content_size += len(chunk)
+        if content_size > max_size:
+            raise HTTPException(
+                status_code=400,
+                detail=f"File size exceeds maximum allowed size of 10MB"
+            )
+        chunks.append(chunk)
+    
+    content = b''.join(chunks)
+    
     settings = get_settings()
     screenshots_dir = settings.resolved_data_dir / "screenshots"
     screenshots_dir.mkdir(parents=True, exist_ok=True)
 
-    filename = f"upload_{uuid.uuid4().hex[:8]}_{file.filename}"
+    # Sanitize filename - extract basename and remove unsafe characters
+    safe_filename = os.path.basename(file.filename) if file.filename else "upload.png"
+    safe_filename = re.sub(r'[^a-zA-Z0-9_.-]', '_', safe_filename)
+    filename = f"upload_{uuid.uuid4().hex[:8]}_{safe_filename}"
     file_path = screenshots_dir / filename
 
-    content = await file.read()
     with open(file_path, "wb") as f:
         f.write(content)
 
