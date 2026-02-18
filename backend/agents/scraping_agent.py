@@ -39,7 +39,9 @@ async def _real_scrape(url: str, competitor: str) -> dict[str, Any]:
 
     timestamp = datetime.now(timezone.utc)
     date_str = timestamp.strftime("%Y%m%d_%H%M%S")
-    screenshot_filename = f"{competitor}_{date_str}.png"
+    # Sanitize competitor name to prevent path traversal
+    competitor_safe = re.sub(r'[^a-zA-Z0-9_-]', '_', competitor)
+    screenshot_filename = f"{competitor_safe}_{date_str}.png"
     screenshot_path = screenshots_dir / screenshot_filename
 
     async with async_playwright() as p:

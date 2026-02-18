@@ -33,18 +33,18 @@ def _map_to_decision(decision_str: str) -> Decision:
     """
     Map decision string to Decision enum.
     
-    Handles edge cases like NO_ACTION by mapping to AUTO_REJECTED.
+    Handles edge cases like NO_ACTION by mapping to AUTO_REJECT.
     """
     # NO_ACTION means we don't need to beat the price, treat as rejection
     if decision_str == "NO_ACTION":
-        return Decision.AUTO_REJECTED
+        return Decision.AUTO_REJECT
     
-    # Try to convert directly, fallback to AUTO_REJECTED if invalid
+    # Try to convert directly, fallback to AUTO_REJECT if invalid
     try:
         return Decision(decision_str)
     except ValueError:
-        logger.warning(f"Invalid decision value '{decision_str}', defaulting to AUTO_REJECTED")
-        return Decision.AUTO_REJECTED
+        logger.warning(f"Invalid decision value '{decision_str}', defaulting to AUTO_REJECT")
+        return Decision.AUTO_REJECT
 
 
 
