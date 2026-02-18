@@ -31,6 +31,7 @@ class Decision(str, Enum):
     AUTO_APPROVED = "AUTO_APPROVE"
     SENT_TO_REVIEW = "SEND_TO_REVIEW"
     AUTO_REJECTED = "AUTO_REJECT"
+    NO_ACTION = "NO_ACTION"
 
 
 class AgentStep(BaseModel):
