@@ -335,7 +335,7 @@ async def orchestrate(
 
     # Send final chat message
     await _emit("chat_message", {
-        "content": decision_result.get("message", "Processing complete."),
+        "message": decision_result.get("message", "Processing complete."),
         "sender": "bot",
         "product_comparison": {
             "our_product": {
