@@ -15,7 +15,7 @@ import logging
 from datetime import datetime
 from typing import Any, Callable, Awaitable, Optional
 
-from backend.tracing.trace_models import AgentTrace, TraceDecision, InferenceMode
+from backend.tracing.trace_models import AgentTrace, TraceDecision, InferenceMode, Decision
 from backend.tracing.trace_context import trace_step
 from backend.tracing.trace_store import TraceStore
 
@@ -27,6 +27,25 @@ from backend.agents.llpg_rule_agent import run_llpg_rule_agent
 from backend.agents.decision_agent import run_decision_agent
 
 logger = logging.getLogger(__name__)
+
+
+def _map_to_decision(decision_str: str) -> Decision:
+    """
+    Map decision string to Decision enum.
+    
+    Handles edge cases like NO_ACTION by mapping to AUTO_REJECTED.
+    """
+    # NO_ACTION means we don't need to beat the price, treat as rejection
+    if decision_str == "NO_ACTION":
+        return Decision.AUTO_REJECTED
+    
+    # Try to convert directly, fallback to AUTO_REJECTED if invalid
+    try:
+        return Decision(decision_str)
+    except ValueError:
+        logger.warning(f"Invalid decision value '{decision_str}', defaulting to AUTO_REJECTED")
+        return Decision.AUTO_REJECTED
+
 
 
 async def orchestrate(
@@ -320,7 +339,7 @@ async def orchestrate(
     trace.total_duration_ms = int((time.perf_counter() - start_time) * 1000)
 
     trace.decision = TraceDecision(
-        decision=rule_result.get("decision", "AUTO_REJECT"),
+        decision=_map_to_decision(rule_result.get("decision", "AUTO_REJECT")),
         reason_code=rule_result.get("tier", ""),
         beat_price=rule_result.get("beat_price"),
         rsa_compliant=rule_result.get("rsa_compliant", False),
