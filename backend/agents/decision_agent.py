@@ -109,11 +109,17 @@ async def run_decision_agent(
     # Generate a default message if AI didn't provide one
     if not result.get("message"):
         if decision == "AUTO_APPROVE":
-            result["message"] = (
-                f"Great news! We can beat that price. Our new price for "
-                f"{product_name} will be ${beat_price:.2f} — "
-                f"saving you ${own_price - beat_price:.2f}!"
-            )
+            if beat_price is not None:
+                result["message"] = (
+                    f"Great news! We can beat that price. Our new price for "
+                    f"{product_name} will be ${beat_price:.2f} — "
+                    f"saving you ${own_price - beat_price:.2f}!"
+                )
+            else:
+                result["message"] = (
+                    f"Great news! We can beat that price for {product_name}. "
+                    f"Your price has been updated."
+                )
         elif decision == "SEND_TO_REVIEW":
             result["message"] = (
                 f"Thanks for letting us know! The price difference is significant, "
