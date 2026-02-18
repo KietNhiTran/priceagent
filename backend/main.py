@@ -207,14 +207,21 @@ async def upload_screenshot(file: UploadFile = File(...)):
             detail=f"Invalid file type. Allowed types: {', '.join(allowed_types)}"
         )
     
-    # Read content and validate size (max 10MB)
-    content = await file.read()
+    # Validate size with streaming to prevent memory exhaustion (max 10MB)
     max_size = 10 * 1024 * 1024  # 10MB
-    if len(content) > max_size:
-        raise HTTPException(
-            status_code=400,
-            detail=f"File size exceeds maximum allowed size of 10MB"
-        )
+    content_size = 0
+    chunks = []
+    
+    async for chunk in file.stream():
+        content_size += len(chunk)
+        if content_size > max_size:
+            raise HTTPException(
+                status_code=400,
+                detail=f"File size exceeds maximum allowed size of 10MB"
+            )
+        chunks.append(chunk)
+    
+    content = b''.join(chunks)
     
     settings = get_settings()
     screenshots_dir = settings.resolved_data_dir / "screenshots"

@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class StepStatus(str, Enum):
@@ -36,6 +36,8 @@ class Decision(str, Enum):
 
 class AgentStep(BaseModel):
     """A single agent execution step within a trace."""
+    model_config = ConfigDict(populate_by_name=True)
+    
     step_id: str
     trace_id: str
     agent_name: str
@@ -47,13 +49,12 @@ class AgentStep(BaseModel):
     output_summary: str = ""
     inference_mode: InferenceMode = InferenceMode.FALLBACK
     raw_json: dict[str, Any] = Field(default_factory=dict)
-    
-    class Config:
-        populate_by_name = True  # Allow both field name and alias
 
 
 class TraceDecision(BaseModel):
     """Final decision details for an LLPG trace."""
+    model_config = ConfigDict(populate_by_name=True)
+    
     decision: Decision
     reason_code: str = ""
     beat_price: Optional[float] = None
@@ -63,9 +64,6 @@ class TraceDecision(BaseModel):
     competitor_price: Optional[float] = None
     own_price: Optional[float] = None
     saving: Optional[float] = None
-    
-    class Config:
-        populate_by_name = True  # Allow both field name and alias
 
 
 class AgentTrace(BaseModel):
