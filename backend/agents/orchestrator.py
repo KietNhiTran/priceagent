@@ -15,7 +15,7 @@ import logging
 from datetime import datetime
 from typing import Any, Callable, Awaitable, Optional
 
-from backend.tracing.trace_models import AgentTrace, TraceDecision, InferenceMode
+from backend.tracing.trace_models import AgentTrace, TraceDecision, InferenceMode, Decision
 from backend.tracing.trace_context import trace_step
 from backend.tracing.trace_store import TraceStore
 
@@ -320,7 +320,7 @@ async def orchestrate(
     trace.total_duration_ms = int((time.perf_counter() - start_time) * 1000)
 
     trace.decision = TraceDecision(
-        decision=rule_result.get("decision", "AUTO_REJECT"),
+        decision=Decision(rule_result.get("decision", "AUTO_REJECT")),
         reason_code=rule_result.get("tier", ""),
         beat_price=rule_result.get("beat_price"),
         rsa_compliant=rule_result.get("rsa_compliant", False),
