@@ -28,9 +28,9 @@ class InferenceMode(str, Enum):
 
 
 class Decision(str, Enum):
-    AUTO_APPROVED = "AUTO_APPROVE"
-    SENT_TO_REVIEW = "SEND_TO_REVIEW"
-    AUTO_REJECTED = "AUTO_REJECT"
+    AUTO_APPROVE = "AUTO_APPROVE"
+    SEND_TO_REVIEW = "SEND_TO_REVIEW"
+    AUTO_REJECT = "AUTO_REJECT"
     NO_ACTION = "NO_ACTION"
 
 
