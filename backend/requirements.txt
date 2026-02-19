@@ -1,0 +1,35 @@
+# LLPG Reactive Price Beat Agent — Backend Dependencies
+# Python 3.11+
+
+# Web framework
+fastapi==0.115.8
+uvicorn[standard]==0.34.0
+websockets==14.2
+python-multipart==0.0.20
+
+# Semantic Kernel
+semantic-kernel==1.20.0
+
+# Azure OpenAI / Identity
+openai==1.61.0
+azure-identity==1.21.0
+
+# Data processing
+pandas==2.2.3
+numpy==2.2.3
+openpyxl==3.1.5
+
+# Web scraping
+playwright==1.50.0
+
+# Database
+aiosqlite==0.21.0
+
+# Configuration
+python-dotenv==1.0.1
+pydantic==2.10.5
+pydantic-settings==2.7.1
+
+# Utilities
+httpx==0.28.1
+Pillow==11.1.0

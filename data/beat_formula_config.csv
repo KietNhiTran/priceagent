@@ -1,0 +1,4 @@
+tier,beat_amount_min,beat_amount_max,price_diff_pct_min,price_diff_pct_max,action,description
+auto_approve,0.01,5.0,0.0,15.0,AUTO_APPROVE,Small price difference — auto-approve
+human_review,5.01,20.0,15.0,30.0,SEND_TO_REVIEW,Medium difference — route to CHUB for review
+auto_reject,20.01,9999.99,30.0,100.0,AUTO_REJECT,Large difference or below RSA floor — auto-reject

@@ -1,0 +1,7 @@
+category,floor_per_std_drink,min_margin_pct,state,notes
+beer,1.5,5.0,ALL,Above NT min ($1.30). Covers excise + GST + margin
+wine,1.2,5.0,ALL,WET applies differently; lower excise
+spirits,1.8,5.0,ALL,Highest excise rate (~$100.16/LAL)
+rtd,1.6,5.0,ALL,"Mid-range excise, popular category"
+cider,1.4,5.0,ALL,Similar to beer excise
+non_alc,0.0,5.0,ALL,No excise; margin-only floor
