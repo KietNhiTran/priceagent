@@ -98,7 +98,7 @@ def get_kernel():
                 chat_service = AzureChatCompletion(
                     deployment_name=settings.azure_openai_chat_deployment,
                     endpoint=settings.azure_openai_endpoint,
-                    ad_token_provider=credential,
+                    ad_token=credential,
                     api_version=settings.azure_openai_api_version,
                 )
             else:
