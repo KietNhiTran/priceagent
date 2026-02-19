@@ -4,7 +4,7 @@
 
 // ---- Enums --------------------------------------------------------
 
-export type Decision = "AUTO_APPROVE" | "HUMAN_REVIEW" | "AUTO_REJECT" | "NOT_LLPG" | "INCOMPLETE" | "NO_MATCH";
+export type Decision = "AUTO_APPROVE" | "SEND_TO_REVIEW" | "AUTO_REJECT" | "NOT_LLPG" | "INCOMPLETE" | "NO_MATCH";
 
 export type StepStatus = "pending" | "running" | "completed" | "failed";
 
