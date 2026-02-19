@@ -32,6 +32,10 @@ class Decision(str, Enum):
     SEND_TO_REVIEW = "SEND_TO_REVIEW"
     AUTO_REJECT = "AUTO_REJECT"
     NO_ACTION = "NO_ACTION"
+    HUMAN_REVIEW = "HUMAN_REVIEW"
+    NOT_LLPG = "NOT_LLPG"
+    INCOMPLETE = "INCOMPLETE"
+    NO_MATCH = "NO_MATCH"
 
 
 class AgentStep(BaseModel):
@@ -39,7 +43,7 @@ class AgentStep(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
     
     step_id: str
-    trace_id: str
+    trace_id: str = Field(exclude=True)  # Internal only, not serialized to frontend
     agent_name: str
     status: StepStatus = StepStatus.PENDING
     start_time: Optional[datetime] = Field(default=None, alias="started_at")

@@ -288,8 +288,7 @@ async def orchestrate(
 
     # Send trace complete event
     await _emit("trace_complete", {
-        "trace_id": trace.trace_id,
-        "view_url": f"/api/traces/{trace.trace_id}",
+        "trace": trace.model_dump(by_alias=True),
     })
 
     return {
