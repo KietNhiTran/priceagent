@@ -40,7 +40,7 @@ darkTheme.colorNeutralBackground3 = "#0f3460";
 /* Decision badge colours */
 export const DECISION_COLORS: Record<string, { bg: string; fg: string }> = {
   AUTO_APPROVE: { bg: "#E8F5E9", fg: "#1B5E20" },
-  HUMAN_REVIEW: { bg: "#FFF3E0", fg: "#E65100" },
+  SEND_TO_REVIEW: { bg: "#FFF3E0", fg: "#E65100" },
   AUTO_REJECT: { bg: "#FFEBEE", fg: "#B71C1C" },
   NOT_LLPG: { bg: "#E3F2FD", fg: "#0D47A1" },
   INCOMPLETE: { bg: "#FFF9C4", fg: "#F57F17" },

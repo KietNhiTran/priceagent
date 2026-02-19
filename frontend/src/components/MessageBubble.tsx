@@ -76,7 +76,7 @@ interface MessageBubbleProps {
 function decisionLabel(d: Decision): string {
   const map: Record<Decision, string> = {
     AUTO_APPROVE: "✅ Price Beat Approved",
-    HUMAN_REVIEW: "🔍 Sent to Review",
+    SEND_TO_REVIEW: "🔍 Sent to Review",
     AUTO_REJECT: "❌ Rejected",
     NOT_LLPG: "ℹ️ Not a Price Claim",
     INCOMPLETE: "⚠️ More Info Needed",
