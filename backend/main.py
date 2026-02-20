@@ -132,12 +132,6 @@ async def websocket_chat(websocket: WebSocket):
 
             logger.info("[session=%s] User: %s", session_id, user_message[:100])
 
-            # Echo user message back (for chat panel)
-            await send_ws({
-                "type": "chat_message",
-                "message": user_message,
-            })
-
             # Run orchestration
             try:
                 result = await orchestrate(

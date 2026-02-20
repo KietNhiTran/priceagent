@@ -27,11 +27,13 @@ os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-COMPETITORS = ["liquorland", "liquorland_warehouse", "boozebud"]
+COMPETITORS = ["liquorland", "liquorland_warehouse", "boozebud", "bws", "first_choice"]
 COMPETITOR_DOMAINS = {
     "liquorland": "https://www.liquorland.com.au/",
     "liquorland_warehouse": "https://www.liquorland.com.au/warehouse/",
     "boozebud": "https://www.boozebud.com/",
+    "bws": "https://www.bws.com.au/",
+    "first_choice": "https://www.firstchoiceliquor.com.au/",
 }
 
 DAN_MURPHYS_BASE_URL = "https://www.danmurphys.com.au/product/"

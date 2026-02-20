@@ -247,7 +247,7 @@ async def orchestrate(
     # ─────────────────────────────────────────────────────────────────────
     # Finalize trace
     # ─────────────────────────────────────────────────────────────────────
-    trace.final_decision = decision_result.get("decision", "UNKNOWN")
+    trace.final_decision = _map_to_decision(rule_result.get("decision", "AUTO_REJECT")).value
     trace.total_duration_ms = int((time.perf_counter() - start_time) * 1000)
 
     trace.decision = TraceDecision(

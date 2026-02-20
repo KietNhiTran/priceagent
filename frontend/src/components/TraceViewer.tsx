@@ -51,6 +51,7 @@ export function TraceViewer({ trace }: { trace: AgentTrace }) {
           appearance="subtle"
           size="small"
           icon={expanded ? <ChevronDown24Regular /> : <ChevronRight24Regular />}
+          aria-label={expanded ? "Collapse trace" : "Expand trace"}
         />
         <Text weight="semibold">Trace: {trace.trace_id.slice(0, 8)}…</Text>
         <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>

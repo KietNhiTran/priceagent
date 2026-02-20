@@ -70,7 +70,7 @@ class TraceStore:
         async with aiosqlite.connect(self.db_path) as db:
             await self._ensure_tables(db)
 
-            decision_json = trace.decision.model_dump_json() if trace.decision else None
+            decision_json = trace.decision.model_dump_json(by_alias=True) if trace.decision else None
 
             await db.execute(
                 """INSERT OR REPLACE INTO traces
@@ -136,6 +136,11 @@ class TraceStore:
                 step_dict = dict(step_row)
                 if step_dict.get("raw_json"):
                     step_dict["raw_json"] = json.loads(step_dict["raw_json"])
+                # Normalize timestamp field names for API consumers
+                if "start_time" in step_dict:
+                    step_dict["started_at"] = step_dict.pop("start_time")
+                if "end_time" in step_dict:
+                    step_dict["completed_at"] = step_dict.pop("end_time")
                 steps.append(step_dict)
 
             trace_dict["steps"] = steps
