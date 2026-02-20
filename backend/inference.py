@@ -79,15 +79,6 @@ async def invoke_with_fallback(
         return get_fallback_response(agent_name, fallback_variant), "fallback"
 
     try:
-        from semantic_kernel.contents import ChatHistory
-
-        chat_history = ChatHistory()
-        chat_history.add_system_message(
-            "You are an AI agent in the LLPG Reactive Price Beat system for Dan Murphy's. "
-            "Respond ONLY with valid JSON matching the expected output schema."
-        )
-        chat_history.add_user_message(prompt)
-
         result = await asyncio.wait_for(
             kernel.invoke_prompt(prompt=prompt),
             timeout=timeout_seconds,

@@ -79,7 +79,7 @@ export function ProductComparisonCard({
           appearance="filled"
           style={{ backgroundColor: colors.bg, color: colors.fg }}
         >
-          {comparison.decision.replace("_", " ")}
+          {comparison.decision.replaceAll("_", " ")}
         </Badge>
 
         {comparison.beat_price != null && (

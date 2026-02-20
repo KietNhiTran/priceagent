@@ -15,7 +15,7 @@ interface UseWebSocketReturn {
   clearHistory: () => void;
 }
 
-const WS_URL = `ws://${window.location.host}/ws/chat`;
+const WS_URL = `${window.location.protocol === "https:" ? "wss" : "ws"}://${window.location.host}/ws/chat`;
 
 let msgCounter = 0;
 function nextId(): string {
@@ -25,6 +25,7 @@ function nextId(): string {
 export function useWebSocket(): UseWebSocketReturn {
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectTimer = useRef<ReturnType<typeof setTimeout>>();
+  const shouldReconnect = useRef(true);
   const [connected, setConnected] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [steps, setSteps] = useState<AgentStep[]>([]);
@@ -43,6 +44,7 @@ export function useWebSocket(): UseWebSocketReturn {
 
     ws.onclose = () => {
       setConnected(false);
+      if (!shouldReconnect.current) return;
       console.log("[WS] disconnected – reconnecting in 3s");
       reconnectTimer.current = setTimeout(connect, 3000);
     };
@@ -121,10 +123,15 @@ export function useWebSocket(): UseWebSocketReturn {
   }, []);
 
   useEffect(() => {
+    shouldReconnect.current = true;
     connect();
     return () => {
+      shouldReconnect.current = false;
       clearTimeout(reconnectTimer.current);
-      wsRef.current?.close();
+      if (wsRef.current) {
+        wsRef.current.onclose = null;
+        wsRef.current.close();
+      }
     };
   }, [connect]);
 

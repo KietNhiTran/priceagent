@@ -190,7 +190,7 @@
   },
   "DecisionAgent": {
     "approved": {
-      "decision": "APPROVED",
+      "decision": "AUTO_APPROVE",
       "message": "Great news! We can beat that price. Our new price for Victoria Bitter 24 x 375mL Bottles will be $48.98 — saving you $3.01 compared to your current bottle shop price!",
       "beat_price": 48.98,
       "original_price": 52.00,
@@ -200,7 +200,7 @@
       "reasoning": "The price beat has been auto-approved. The new price of $48.98 beats the competitor's $48.99 by $0.01, is above our RSA floor price of $39.90, and the stock-for-stock match is confirmed."
     },
     "sent_to_review": {
-      "decision": "SENT_TO_REVIEW",
+      "decision": "SEND_TO_REVIEW",
       "message": "Thanks for letting us know! The price difference is significant, so our team will review this and get back to you shortly. A team member from our Commercial Hub will confirm within 24 hours.",
       "beat_price": null,
       "original_price": 52.00,
@@ -210,7 +210,7 @@
       "reasoning": "The price difference exceeds our auto-approve threshold. This has been sent to the Commercial Hub (CHUB) for human review."
     },
     "rejected": {
-      "decision": "REJECTED",
+      "decision": "AUTO_REJECT",
       "message": "I'm sorry, but we're unable to match that price. The difference is outside our price-beat policy guidelines. However, we have great value across our wide range — can I help you find something else?",
       "beat_price": null,
       "original_price": 52.00,

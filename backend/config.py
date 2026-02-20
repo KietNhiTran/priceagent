@@ -13,7 +13,7 @@ from pathlib import Path
 from functools import lru_cache
 
 from dotenv import load_dotenv
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
 
 # Load .env from backend/ directory
@@ -41,10 +41,11 @@ class Settings(BaseSettings):
     trace_db_path: str = Field(default="../data/traces.db", alias="TRACE_DB_PATH")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        populate_by_name = True
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        populate_by_name=True,
+    )
 
     @property
     def has_azure_credentials(self) -> bool:

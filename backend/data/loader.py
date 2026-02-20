@@ -115,8 +115,22 @@ def get_rsa_floor(category: str) -> dict:
 def get_beat_tier(price_diff: float, diff_pct: float) -> dict:
     """Determine the beat formula tier for a given price difference."""
     df = load_beat_formula_config()
+    abs_price_diff = abs(price_diff)
+    abs_diff_pct = abs(diff_pct)
     for _, row in df.iterrows():
-        if row["beat_amount_min"] <= abs(price_diff) <= row["beat_amount_max"]:
+        amount_min = row.get("beat_amount_min")
+        amount_max = row.get("beat_amount_max")
+        amount_ok = (
+            (pd.isna(amount_min) or abs_price_diff >= amount_min)
+            and (pd.isna(amount_max) or abs_price_diff <= amount_max)
+        )
+        pct_min = row.get("price_diff_pct_min")
+        pct_max = row.get("price_diff_pct_max")
+        pct_ok = (
+            (pd.isna(pct_min) or abs_diff_pct >= pct_min)
+            and (pd.isna(pct_max) or abs_diff_pct <= pct_max)
+        )
+        if amount_ok and pct_ok:
             return row.to_dict()
     # Default to auto_reject for anything outside defined ranges
     return df.iloc[-1].to_dict()
